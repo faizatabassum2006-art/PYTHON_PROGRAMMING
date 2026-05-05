@@ -1,0 +1,20 @@
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        self.idx = 0
+        
+        def helper(upper_bound):
+
+            if self.idx == len(preorder) or preorder[self.idx] > upper_bound:
+                return None
+
+            root_val = preorder[self.idx]
+            root = TreeNode(root_val)
+            self.idx += 1
+            
+
+            root.left = helper(root_val)
+            root.right = helper(upper_bound)
+            
+            return root
+            
+        return helper(float('inf'))
