@@ -1,0 +1,18 @@
+class Solution:
+    def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        seen=set()
+        def dfs(node):
+            if not node:
+                return False
+            c
+            # Check if the complement exists in our set
+            complement = k - node.val
+            if complement in seen:
+                return True
+            
+            # Add current value and continue searching
+            seen.add(node.val)
+            return dfs(node.left) or dfs(node.right)
+            
+        return dfs(root)
+        
