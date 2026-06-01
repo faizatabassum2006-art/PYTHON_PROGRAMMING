@@ -1,0 +1,5 @@
+char = input().strip()
+if char in 'aeiou':
+  print("Vowel")
+else:
+  print("Consonent")
