@@ -1,0 +1,32 @@
+class Solution:
+    def divide(self, dividend: int, divisor: int) -> int:
+        sign = 1
+
+        if dividend < 0:
+            sign = -sign
+            dividend = -dividend
+
+        if divisor < 0:
+            sign = -sign
+            divisor = -divisor
+
+        result = 0
+
+        while dividend >= divisor:
+            temp = divisor
+            count = 1
+
+            while dividend >= (temp << 1):
+                temp = temp << 1
+                count = count << 1
+
+            dividend = dividend - temp
+            result = result + count
+
+        if sign < 0:
+            result = -result
+
+        if result > 2147483647:
+            result = 2147483647
+
+        return result
